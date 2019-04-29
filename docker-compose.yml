@@ -1,0 +1,22 @@
+version: "3"
+services:
+  memcached:
+    image: memcached:1.4
+    container_name: memcached
+    ports:
+      - "11211:11211"
+  mongodb:
+    image: mongo:2.6.10
+    container_name: "mongo"
+    ports:
+    - 27017:27017
+    command: --smallfiles
+  app:
+    depends_on:
+    - memcached
+    - mongodb
+    image: mutantes
+    ports:
+    - 8080:8080
+    links:
+    - mongodb
