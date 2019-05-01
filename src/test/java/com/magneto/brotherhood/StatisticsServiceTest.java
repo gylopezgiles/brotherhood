@@ -1,12 +1,8 @@
 package com.magneto.brotherhood;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import com.magneto.brotherhood.model.Stats;
 import com.magneto.brotherhood.services.CacheService;
 import com.magneto.brotherhood.services.StatisticsCacheService;
-import net.spy.memcached.MemcachedClient;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +13,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.mockito.Mockito.when;
 
 
 

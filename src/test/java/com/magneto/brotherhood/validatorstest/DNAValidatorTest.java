@@ -1,7 +1,6 @@
 package com.magneto.brotherhood.validatorstest;
 
 import com.magneto.brotherhood.validators.DNAValidator;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

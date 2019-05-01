@@ -5,6 +5,12 @@ services:
     container_name: memcached
     ports:
       - "11211:11211"
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
   mongodb:
     image: mongo:2.6.10
     container_name: "mongo"
@@ -15,6 +21,7 @@ services:
     depends_on:
     - memcached
     - mongodb
+    - rabbitmq
     image: mutantes
     ports:
     - 8080:8080
