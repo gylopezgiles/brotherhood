@@ -51,10 +51,10 @@ public class MutantService{
         ObjectMapper mapper = new ObjectMapper();
         try {
             String jsonString = mapper.writeValueAsString(dna);
-            logger.info("jsonString to send: " + jsonString);
+            logger.info("sending to queue message : " + jsonString);
             rabbitTemplate.convertAndSend(RabbitMqConfiguration.EXCHANGE_NAME, RabbitMqConfiguration.ROUTING_KEY, jsonString);
         } catch (JsonProcessingException e){
-
+            logger.error("cant convert dna object to json string. " + e);
         }
 
     }
@@ -69,7 +69,9 @@ public class MutantService{
     }
 
     public void saveDNA(DNA dna){
+        logger.info("saving in db: "+ dna);
         dnaRepository.save(dna);
+        logger.info("invalidating cache: " + DNATypes.valueOf(dna.getMutant()));
         statisticsCacheService.invalidateCache(DNATypes.valueOf(dna.getMutant()));
     }
 

@@ -6,7 +6,6 @@ import com.magneto.brotherhood.services.MutantService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
@@ -20,7 +19,7 @@ public class Receiver {
 
     public void receiveMessage(String message) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        logger.info("Received <" + message + ">");
+        logger.info("message received from queue <" + message + ">");
         DNA dna = mapper.readValue(message, DNA.class);
         mutantService.saveDNA(dna);
     }

@@ -1,4 +1,4 @@
-package com.magneto.brotherhood;
+package com.magneto.brotherhood.servicestest;
 
 import com.magneto.brotherhood.model.Stats;
 import com.magneto.brotherhood.services.CacheService;
