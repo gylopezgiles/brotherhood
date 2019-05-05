@@ -27,7 +27,6 @@ docker-compose up
 3. En application.properties:
 ```bash
 server.port=8081
-#memcached.url.connection=memcached:11211
 spring.rabbitmq.host=rabbitmq
 memcached.url.connection=localhost:11211
 ```
